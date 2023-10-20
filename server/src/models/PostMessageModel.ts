@@ -10,10 +10,11 @@ const postSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    createAt: {
+    createdAt: {
         type: Date,
         default: new Date()
     },
+    isDeleted: Boolean
 })
 
 const PostMessage = mongoose.model("PostMessage", postSchema)
