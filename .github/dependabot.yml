@@ -17,3 +17,4 @@ updates:
     review:
       require: true
       required_approvals: 1
+
