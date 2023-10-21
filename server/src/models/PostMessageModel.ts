@@ -14,7 +14,10 @@ const postSchema = new mongoose.Schema({
         type: Date,
         default: new Date()
     },
-    isDeleted: Boolean
+    isDeleted: {
+        type: Boolean,
+        default: false
+    },
 })
 
 const PostMessage = mongoose.model("PostMessage", postSchema)
