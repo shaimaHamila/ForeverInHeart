@@ -17,12 +17,4 @@ updates:
     review:
       require: true
       required_approvals: 1
-          automerge:
-      enabled: true
-      labels:
-        - "automerge"
-      ignore:
-        - "security"  # Optional: Ignore "security" label
-    allow:
-      - dependency-type: "all"
-        auto-approve-reviewers: 1
+
