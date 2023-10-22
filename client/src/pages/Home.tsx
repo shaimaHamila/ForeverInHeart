@@ -8,7 +8,7 @@ const Home = () => {
       <NavBar></NavBar>
       <div className="container">
         <Posts />
-
+        {/* https://www.bootdey.com/snippets/view/blog-post-grid-cards#html */}
         <Form />
       </div>
     </div>
