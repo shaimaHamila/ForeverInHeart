@@ -19,7 +19,7 @@ const Form = () => {
     tags: [],
     selectedFile: "",
   });
-  const [uploadedFile, setUploadedFile] = useState("");
+
   const handleSubmit = () => {
     console.log(newPost);
     store.dispatch(addPost(newPost));
