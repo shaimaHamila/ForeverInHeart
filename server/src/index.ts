@@ -15,5 +15,5 @@ const PORT = process.env.PORT || 5000
 app.use('/post', router)
 
 app.listen(PORT, () => {
-    console.log('Express is running at 5000!')
+    console.log('Express is running at http://localhost:5000 !')
 })

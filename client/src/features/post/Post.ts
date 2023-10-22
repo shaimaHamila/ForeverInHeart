@@ -20,14 +20,15 @@ export const fetchAllPosts = createAsyncThunk<Post[]>(
     async () => {
         try {
             const posts = await axios.get(api);
-            return posts.data
+            console.log("posts.data.data", posts.data.data)
+            return posts.data.data
 
         } catch (err: any) {
             throw err
         }
     }
 )
-export const addPost = createAsyncThunk<Post, Post>(
+export const addPost = createAsyncThunk<Post, Partial<Post>>(
 
     "post/addPost",
     async (newPost) => {

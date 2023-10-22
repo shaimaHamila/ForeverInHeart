@@ -1,15 +1,16 @@
 import { Button, Paper, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import Post from "../../types/Post";
+import Post from "../../../types/Post";
 import { Uploader } from "uploader"; // Installed by "react-uploader".
 import { UploadButton } from "react-uploader";
+import store from "../../../store/store";
+import { addPost } from "../../../features/post/Post";
 // Initialize once (at the start of your app).
 const uploader = Uploader({
-  apiKey: "free", // Get production API keys from Bytescale
+  apiKey: "free",
 });
 
 // Configuration options: https://www.bytescale.com/docs/upload-widget/frameworks/react#customize
-const options = { multi: true };
 const Form = () => {
   const [newPost, setNewPost] = useState<Partial<Post>>({
     creator: "",
@@ -18,9 +19,12 @@ const Form = () => {
     tags: [],
     selectedFile: "",
   });
+
   const handleSubmit = () => {
     console.log(newPost);
+    store.dispatch(addPost(newPost));
   };
+  const options = { multi: false, maxFileCount: 1 };
 
   return (
     <div>
@@ -83,14 +87,22 @@ const Form = () => {
             <UploadButton
               uploader={uploader}
               options={options}
-              onComplete={(files) =>
-                alert(files.map((x) => x.fileUrl).join("\n"))
-              }>
+              onComplete={(files) => {
+                const uploadedFile = files[0]; // Assuming only one file is uploaded
+                if (uploadedFile) {
+                  setNewPost({
+                    ...newPost,
+                    selectedFile: uploadedFile.fileUrl,
+                  }); // Set the uploaded file URL
+                  alert("File uploaded successfully");
+                }
+              }}>
               {({ onClick }) => (
                 <button onClick={onClick}>Upload a file...</button>
               )}
             </UploadButton>
           </div>
+          <img src={newPost.selectedFile} alt="" />
           <Button type="submit">Submit</Button>
         </form>
       </Paper>
