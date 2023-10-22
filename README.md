@@ -22,9 +22,15 @@ Before you get started, make sure you have the following software and tools inst
 - Node.js and npm
 - MongoDB
 
-### Frontend
 
-1. **Frontend Setup:**
+1. **Backend Setup:**
+
+   ```bash
+   cd server
+   npm install
+   npm start
+   ```
+2. **Frontend Setup:**
 
    ```bash
    cd client
@@ -33,10 +39,4 @@ Before you get started, make sure you have the following software and tools inst
 
    ```
 
-2. **Backend Setup:**
 
-   ```bash
-   cd server
-   npm install
-   npm start
-   ```
