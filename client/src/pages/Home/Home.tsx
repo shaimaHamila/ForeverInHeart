@@ -1,16 +1,23 @@
-import NavBar from "../../components/organisms/navBar/NavBar";
-import Form from "../../components/template/Form/Form";
+import { Link } from "react-router-dom";
 import Posts from "../../components/template/Posts/Posts";
 import CreateMemory from "../CreateMemory/CreateMemory";
 
 const Home = () => {
   return (
     <div>
-      <NavBar></NavBar>
-      <div className="container">
-        <Posts />
+      <div className="container ">
+        <div className="add-memory mt-5 d-flex justify-content-between">
+          <h3>Add Memory </h3>
+          <Link to="addMemory">
+            <button type="button" className="btn btn-primary btn-lg">
+              Add a memory
+            </button>
+          </Link>
+        </div>
+        <div className="mb-5">
+          <Posts />
+        </div>
         {/* https://www.bootdey.com/snippets/view/blog-post-grid-cards#html */}
-        <CreateMemory />
       </div>
     </div>
   );
